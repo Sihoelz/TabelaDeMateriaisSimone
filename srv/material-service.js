@@ -22,8 +22,8 @@ module.exports = (srv) => {
 
   });
 
-  // ➕ Action criar
-  srv.on('addMaterial', async (req) => {
+// Criar Material
+  srv.on('criarMaterial', async (req) => {
 
     const { NumMat, Nome, Descr } = req.data;
 
@@ -48,10 +48,10 @@ module.exports = (srv) => {
         .orderBy('ID desc')
     );
 
+    // Converte para inteiro antes de somar
     let novoID = 1;
-
     if (ultimo && ultimo.ID) {
-      novoID = ultimo.ID + 1;
+      novoID = parseInt(ultimo.ID, 10) + 1;
     }
 
     // Inserção
@@ -66,6 +66,6 @@ module.exports = (srv) => {
 
     return `Sucesso: Material ${Nome} criado com ID ${novoID}`;
 
-  });
+});
 
 };
