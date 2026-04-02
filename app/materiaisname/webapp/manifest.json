@@ -1,0 +1,122 @@
+{
+  "_version": "1.83.0",
+  "sap.app": {
+    "id": "app.materiais.materiaisname",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.22.0",
+      "toolsId": "159fe2dc-a28f-4626-93cb-d399d9194343"
+    },
+    
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/material/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.01"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.146.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "app.materiais.materiaisname.i18n.i18n"
+        }
+      },
+      "": {
+  "type": "sap.ui.model.odata.v4.ODataModel",
+  "dataSource": "mainService",
+  "preload": true,
+  "settings": {
+    "operationMode": "Server",
+    "autoExpandSelect": true,
+    "earlyRequests": true,
+    "synchronizationMode": "None"
+  }
+}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "app.materiais.materiaisname.view",
+        "async": true,
+        "viewPath": "app.materiais.materiaisname.view"
+      },
+      "routes": [
+        {
+          "name": "RouteMain",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMain"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMain": {
+          "id": "Main",
+          "name": "Main"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "app.materiais.materiaisname.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+
+    
+  }
+}
