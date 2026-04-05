@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started 
 
 Welcome to your new project.
@@ -23,3 +24,7 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+=======
+# TabelaDeMateriaisSimone
+Prova Avaliacao
+>>>>>>> 13bbcfd4fae588c26e57380e5cf4da159ed47d94
