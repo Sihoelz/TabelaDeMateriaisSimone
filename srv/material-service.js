@@ -22,8 +22,8 @@ module.exports = (srv) => {
 
   });
 
-  // ➕ Action criar
-  srv.on('addMaterial', async (req) => {
+// Criar Material
+  srv.on('criarMaterial', async (req) => {
 
     const { NumMat, Nome, Descr } = req.data;
 
@@ -34,7 +34,7 @@ module.exports = (srv) => {
 
     // Verifica duplicidade
     const existe = await cds.run(
-      SELECT.one.from(Materiais).where({ numMat: NumMat })
+      SELECT.one.from(Materiais).where({ NumMat: NumMat })
     );
 
     if (existe) {
@@ -48,24 +48,24 @@ module.exports = (srv) => {
         .orderBy('ID desc')
     );
 
+    // Converte para inteiro antes de somar
     let novoID = 1;
-
     if (ultimo && ultimo.ID) {
-      novoID = ultimo.ID + 1;
+      novoID = parseInt(ultimo.ID, 10) + 1;
     }
 
     // Inserção
     await cds.run(
       INSERT.into(Materiais).entries({
         ID: novoID,
-        numMat: NumMat,
-        nome: Nome,
-        descr: Descr
+        NumMat: NumMat,
+        Nome: Nome,
+        Descr: Descr
       })
     );
 
     return `Sucesso: Material ${Nome} criado com ID ${novoID}`;
 
-  });
+});
 
 };

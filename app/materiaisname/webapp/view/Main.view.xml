@@ -1,0 +1,53 @@
+<mvc:View xmlns:table2="sap.fe.macros.table"
+  controllerName="app.materiais.materiaisname.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:table="sap.ui.table">
+
+  <Page id="page" title="Materiais">
+     <content>
+
+<!-- Filtro -->     
+      <Toolbar width="50%">
+
+          <Input id="inputFiltro" placeholder="Filtrar por descrição"/>
+          <Button text="Filtrar" press="onFiltrar"/>
+
+ <!-- empurra o botão pra direita -->
+        <ToolbarSpacer/>
+
+        <!-- Botão Criar Novos Registros -->
+        <Button 
+          text="Add Novo Material"
+          icon="sap-icon://add"
+          type="Emphasized"
+          press="onNovo"/>
+</Toolbar>
+
+<!--Tabela Cabeçalho -->
+         <Table id="tabelaMateriais" items="{/Materiais}">
+            <columns>
+                 <Column><Text text="ID"/></Column>
+                 <Column><Text text="Cod Material"/></Column>
+                 <Column><Text text="Nome"/></Column>
+                 <Column><Text text="Descrição"/></Column>
+            </columns>
+<!--Itens-->   
+       <items>
+             <ColumnListItem>
+                <cells>
+                  <Text text="{ID}"/>
+                  <Text text="{NumMat}"/>
+                  <Text text="{Nome}"/>
+                  <Text text="{Descr}"/>
+              </cells>
+            </ColumnListItem>
+        </items>
+   
+   
+   
+         </Table>
+    </content>
+  </Page>
+</mvc:View>
+
