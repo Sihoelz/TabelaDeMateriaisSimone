@@ -1,5 +1,5 @@
 {
-  "name": "CapMateriaisSimone",
+  "name": "capdaSimone",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "dependencies": {
@@ -17,5 +17,24 @@
   "private": true,
   "workspaces": [
     "app/*"
-  ]
+  ],
+
+  "dataSources": {
+  "mainService": {
+    "uri": "/odata/v4/material/",
+    "type": "OData",
+    "settings": {
+      "odataVersion": "4.0"
+    }
+  }
+},
+
+"models": {
+  "": {
+    "dataSource": "mainService",
+    "settings": {
+      "synchronizationMode": "None"
+    }
+  }
+}
 }
