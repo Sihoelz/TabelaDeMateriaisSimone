@@ -1,9 +1,9 @@
-POST http://localhost:4004/MaterialService/criarMaterial
+POST http://localhost:4004/odata/v4/material/criarMaterial
 Content-Type: application/json
 
 {
-    
-    "NumMat": 1011,
-    "Nome": "Parafuso",
-    "Descr": "Parafuso de aço inox"
+
+    "NumMat": 1013,
+    "Nome": "Pendrive",
+    "Descr": "Pendrive Digital"
 }

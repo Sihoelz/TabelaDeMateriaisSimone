@@ -34,7 +34,7 @@ module.exports = (srv) => {
 
     // Verifica duplicidade
     const existe = await cds.run(
-      SELECT.one.from(Materiais).where({ numMat: NumMat })
+      SELECT.one.from(Materiais).where({ NumMat: NumMat })
     );
 
     if (existe) {
@@ -58,9 +58,9 @@ module.exports = (srv) => {
     await cds.run(
       INSERT.into(Materiais).entries({
         ID: novoID,
-        numMat: NumMat,
-        nome: Nome,
-        descr: Descr
+        NumMat: NumMat,
+        Nome: Nome,
+        Descr: Descr
       })
     );
 
