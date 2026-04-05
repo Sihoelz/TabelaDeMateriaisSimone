@@ -2,6 +2,7 @@ POST http://localhost:4004/MaterialService/criarMaterial
 Content-Type: application/json
 
 {
+    
     "NumMat": 1011,
     "Nome": "Parafuso",
     "Descr": "Parafuso de aço inox"
